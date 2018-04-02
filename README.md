@@ -1,24 +1,13 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Interview test RoR task
+## Сделать TODO:
+- [/] 1. SignIn/SignUp
+- [ ] 2. Сделать CRUD
+- [ ] 3. добавить возможность коментировать/удалять коменты 
+- [ ] 4. добавить время релиза таски
+- [ ] 5. добавить subtasks
+- [ ] 6. добавить статус done/new/in progress
+- [ ] 7. добавить приорити тасок high/normal/low/blocked
+- [ ] 8. в in progress должно быть максимум две таски
+задания  
+- [ ] 9. сделать статистику на месяц по дням, сколько было закрыто тасок и сколько планируется закрыть тасок в будущем так же по дням
+- [ ] 10. просто в лог писать какой пользователь какое действие делал
