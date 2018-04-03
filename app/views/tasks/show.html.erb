@@ -20,5 +20,31 @@
   <%= @task.task_priority %>
 </p>
 
+<h2>Comments</h2>
+<% @task.comments.each do |comment| %>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.comment_text %>
+  </p>
+
+  <p>
+    <%= link_to 'Destroy Comment', [comment.task, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @task, @task.comments.build ]) do |form| %>
+  <p>
+    <%= form.label :comment_text %><br>
+    <%= form.text_area :comment_text %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
