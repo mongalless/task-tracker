@@ -1,0 +1,42 @@
+<%= form_with(model: subtask, local: true) do |form| %>
+  <% if subtask.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subtask.errors.count, "error") %> prohibited this subtask from being saved:</h2>
+
+      <ul>
+      <% subtask.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :subtask_text %>
+    <%= form.text_field :subtask_text, id: :subtask_subtask_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtask_release_date %>
+    <%= form.datetime_select :subtask_release_date, id: :subtask_subtask_release_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtask_status %>
+    <%= form.text_field :subtask_status, id: :subtask_subtask_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtask_priority %>
+    <%= form.text_field :subtask_priority, id: :subtask_subtask_priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task_id %>
+    <%= form.text_field :task_id, id: :subtask_task_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

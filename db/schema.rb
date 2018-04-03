@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403202213) do
+ActiveRecord::Schema.define(version: 20180403211903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,25 @@ ActiveRecord::Schema.define(version: 20180403202213) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_comments_on_task_id"
+  end
+
+  create_table "subcomments", force: :cascade do |t|
+    t.text "subcomment_text"
+    t.bigint "subtask_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subtask_id"], name: "index_subcomments_on_subtask_id"
+  end
+
+  create_table "subtasks", force: :cascade do |t|
+    t.string "subtask_text"
+    t.datetime "subtask_release_date"
+    t.string "subtask_status"
+    t.string "subtask_priority"
+    t.bigint "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_subtasks_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -51,4 +70,6 @@ ActiveRecord::Schema.define(version: 20180403202213) do
   end
 
   add_foreign_key "comments", "tasks"
+  add_foreign_key "subcomments", "subtasks"
+  add_foreign_key "subtasks", "tasks"
 end

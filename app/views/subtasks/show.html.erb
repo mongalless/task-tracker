@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subtask text:</strong>
+  <%= @subtask.subtask_text %>
+</p>
+
+<p>
+  <strong>Subtask release date:</strong>
+  <%= @subtask.subtask_release_date %>
+</p>
+
+<p>
+  <strong>Subtask status:</strong>
+  <%= @subtask.subtask_status %>
+</p>
+
+<p>
+  <strong>Subtask priority:</strong>
+  <%= @subtask.subtask_priority %>
+</p>
+
+<h2>Subcomments</h2>
+<% @subtask.subcomments.each do |subcomment| %>
+  <p>
+    <strong>subcomment:</strong>
+    <%= subcomment.subcomment_text %>
+  </p>
+
+  <p>
+    <%= link_to 'Destroy Subcomment', [subcomment.subtask, subcomment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+ 
+<h2>Add a subcomment:</h2>
+<%= form_with(model: [ @subtask, @subtask.subcomments.build ]) do |form| %>
+  <p>
+    <%= form.label :subcomment_text %><br>
+    <%= form.text_area :subcomment_text %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_subtask_path(@subtask) %> |
+<%= link_to 'Back', subtasks_path %>

@@ -46,5 +46,15 @@
 
 <% end %>
 
+
+<h2>Subtasks</h2>
+<% @task.subtasks.each do |subtask| %>
+  <td><%= link_to 'Show', subtask %></td>
+  <td><%= link_to 'Destroy', subtask, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+
+<h2>Add a subtask:</h2>
+<%= link_to 'New Subtask', new_subtask_path %>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
